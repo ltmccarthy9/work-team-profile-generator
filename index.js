@@ -4,18 +4,14 @@ const Employee = require('./lib/employee');
 const Manager = require('./lib/manager');
 const Engineer = require('./lib/engineer');
 const Intern = require('./lib/intern');
+const { generate } = require("rxjs");
+const { create } = require("domain");
+
+const Generate = require('./lib/generate');
+var managers = 0;
 
 
-inquirer
-.prompt([
-  {
-    type: 'list',
-    message: 'Pick a license:',
-    choices: ['MIT', 'Apache license 2.0', 'GPLv3'],
-    name: 'license',
-  },
-  {
-    type: 'input',
-    message: 'What is your project title?',
-    name: 'p_title',
-  },
+const go = new Generate;
+
+go.go();
+
